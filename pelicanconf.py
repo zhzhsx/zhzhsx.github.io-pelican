@@ -8,6 +8,7 @@ SITEURL = ''
 
 TIMEZONE = 'Europe/Paris'
 
+LOCALE = 'zh_CN.UTF-8'
 DEFAULT_LANG = u'zh'
 
 # Feed generation is usually not desired when developing
