@@ -2,14 +2,14 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = u'zhzhsx'
-SITENAME = u"zhzhsx's Blog"
+AUTHOR = 'zhzhsx'
+SITENAME = "zhzhsx's Blog"
 SITEURL = ''
 
 TIMEZONE = 'Europe/Paris'
 
 LOCALE = 'zh_CN.UTF-8'
-DEFAULT_LANG = u'zh'
+DEFAULT_LANG = 'zh'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
