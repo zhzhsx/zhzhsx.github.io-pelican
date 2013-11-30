@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
+PLUGIN_PATH = "./plugins"
+PLUGINS = ["pandocreader"]
+
 AUTHOR = 'zhzhsx'
 SITENAME = "zhzhsx's Blog"
 SITEURL = ''
@@ -43,3 +46,4 @@ TAG_URL = 'tag/{slug}'
 TAG_SAVE_AS = 'tag/{slug}/index.html'
 
 #THEME = 'notmyidea'
+PANDOC_ARGS = ['--mathjax', '--smart', '--base-header-level=3']
