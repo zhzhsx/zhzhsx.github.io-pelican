@@ -9,12 +9,15 @@ AUTHOR = 'zhzhsx'
 SITENAME = "zhzhsx's Blog"
 SITEURL = ''
 
-TIMEZONE = 'Asia/Chongqing'
+TIMEZONE = 'Asia/Shanghai'
 
 LOCALE = 'zh_CN.UTF-8'
 DEFAULT_LANG = 'zh'
 
+# DEFAULT_DATE = 'fs' # use filesystem's mtime
 DEFAULT_DATE_FORMAT = '%Y年%m月%d日(%a)'
+
+FILENAME_METADATA = '(?P<slug>.*)'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -45,5 +48,13 @@ CATEGORY_SAVE_AS = 'category/{slug}/index.html'
 TAG_URL = 'tag/{slug}'
 TAG_SAVE_AS = 'tag/{slug}/index.html'
 
-#THEME = 'notmyidea'
+THEME = 'badidea'
+
+MENUITEMS = (('Categories', '/categories'), ('Tags', '/tags'), ('About', '/pages/about'))
+#MENUITEMS_RIGHT = (('Categories', '/categories'), ('Tags', '/tags'), ('About', '/pages/about'),)
+
 PANDOC_ARGS = ['--mathjax', '--smart', '--base-header-level=3']
+
+MATHJAX = True
+
+DISQUS_SITENAME = 'zhzhsx'
