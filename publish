@@ -1,0 +1,17 @@
+#!/bin/bash
+rm -rf output
+
+pelican -s publishconf.py
+
+cd output
+
+if [ ! -d .git ];
+then
+        git init
+        git remote add origin git@github.com:zhzhsx/zhzhsx.github.io.git
+fi
+
+git add .
+git commit -m 'blog update by publish script'
+git push -f origin master
+
