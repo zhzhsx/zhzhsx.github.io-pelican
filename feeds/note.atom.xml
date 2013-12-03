@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>zhzhsx's Blog</title><link href="http://zhzhsx.github.io/" rel="alternate"></link><link href="http://zhzhsx.github.io/feeds/note.atom.xml" rel="self"></link><id>http://zhzhsx.github.io/</id><updated>2013-12-02T11:00:00+08:00</updated><entry><title>把Windows安装到移动硬盘上</title><link href="http://zhzhsx.github.io/posts/install-windows-to-portable-drive" rel="alternate"></link><updated>2013-12-02T11:00:00+08:00</updated><author><name>zhzhsx</name></author><id>tag:zhzhsx.github.io,2013-12-02:posts/install-windows-to-portable-drive</id><summary type="html">&lt;p&gt;Windows 8及之后的系统支持Windows To Go，通过该功能可以将Windows安装到移动硬盘上。但是，Windows To Go会格式化整个移动硬盘，&lt;/p&gt;
+</summary></entry></feed>

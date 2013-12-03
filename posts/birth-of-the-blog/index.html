@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>博客诞生记</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="http://zhzhsx.github.io/theme/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://zhzhsx.github.io/theme/css/pygments.css" type="text/css">
+    <link rel="stylesheet" href="http://zhzhsx.github.io/theme/css/custom.css" type="text/css"/>
+
+    <link href="http://zhzhsx.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="zhzhsx's Blog Atom Feed" />
+
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        "HTML-CSS": {
+          styles: {".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+        }
+      });
+    </script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://zhzhsx.github.io/">zhzhsx's Blog</a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/categories">Categories</a></li>
+                <li><a href="/tags">Tags</a></li>
+                <li><a href="/pages/about">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container">
+
+<h1>博客诞生记</h1>
+
+<div>
+    <small>
+        <span>zhzhsx</span> / <span>2013年04月21日(周日)</span>
+        分类 <span><a href="http://zhzhsx.github.io/categories#blog">Blog</a></span>
+    </small>
+</div>
+
+<br/>
+
+<div class="long-text">
+    <p><em>已经转到Pelican上了</em></p>
+<p>建立静态博客有多种方案，本博客试过Octopress和Jekyll，前者代码和博客内容混在一起，后者缺乏官方文档。JekyllBootstrap是Jekyll的一些起步文件，项目似乎已经停止维护，其作者在创建一个新的静态博客生成工具ruhoh。本着折腾的精神，本博客试用这个还在alpha阶段的软件。</p>
+<p>ruhoh有一些优点，例如可以自动生成summary。但也存在很多问题，如rackup可能崩溃，可以将Gemfile.lock中directory_watch都改为1.4.1解决问题。</p>
+<h3 id="显示数学公式">显示数学公式</h3>
+<p>MathML虽然方便，但不好看。MathJax好看，但加载速度慢。</p>
+<h3 id="其他">其他</h3>
+<p>pandoc的fenced code支持高亮!但好像和ruhoh的高亮冲突。</p>
+<pre class="sourceCode java" id="samplecode"><code class="sourceCode java"><span class="kw">class</span> Hello {
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {
+        <span class="dt">int</span> i = <span class="dv">0</span>;
+    }
+}</code></pre>
+<h3 id="测试">测试</h3>
+<p>测试博客的排版。</p>
+<p>数学公式测试。根据<a href="http://drz.ac/2013/01/03/blogging-with-math/">这篇博客</a>，pandoc可以正确处理下面几个公式，而其他markdown解析器无法正确解析。 <span class="math">\[y = [z &gt; 0]\]</span> <span class="math">\[\int_{-\infty}^\infty f(x) \mathrm{d} x,\]</span> <span class="math">\[\int_{-\infty}^\infty g(t) \mathrm{d} t,\]</span></p>
+<p>缩进式代码</p>
+<pre><code>int main() {
+    printf(&quot;hello, world!\n&quot;);
+}</code></pre>
+<p>定义</p>
+<dl>
+<dt>苹果</dt>
+<dd>苹果是一种水果。
+</dd>
+</dl>
+<p>脚注<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup>测试。</p>
+<p>脚注后一段。</p>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>这是脚注内容<a href="#fnref1">↩</a></p></li>
+</ol>
+</section>
+
+</div>
+
+    <hr />
+    <section class="comments" id="comments">
+    <!--<h2>Comments</h2>-->
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'zhzhsx'; // required: replace example with your forum shortname
+            var disqus_identifier = 'birth-of-the-blog';
+            //var disqus_url = 'http://zhzhsx.github.io/posts/birth-of-the-blog';
+
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>在Github Pages上用Octopress建立博客</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="http://zhzhsx.github.io/theme/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://zhzhsx.github.io/theme/css/pygments.css" type="text/css">
+    <link rel="stylesheet" href="http://zhzhsx.github.io/theme/css/custom.css" type="text/css"/>
+
+    <link href="http://zhzhsx.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="zhzhsx's Blog Atom Feed" />
+
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        "HTML-CSS": {
+          styles: {".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+        }
+      });
+    </script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://zhzhsx.github.io/">zhzhsx's Blog</a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/categories">Categories</a></li>
+                <li><a href="/tags">Tags</a></li>
+                <li><a href="/pages/about">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container">
+
+<h1>在Github Pages上用Octopress建立博客</h1>
+
+<div>
+    <small>
+        <span>zhzhsx</span> / <span>2013年01月25日(周五)</span>
+        分类 <span><a href="http://zhzhsx.github.io/categories#blog">Blog</a></span>
+    </small>
+</div>
+
+<br/>
+
+<div class="long-text">
+    <p><strong>已经不用Octopress了，此文信息可能陈旧</strong></p>
+<p>用Wordpress建立个人博客需要PHP+MySQL环境，用Octopress只需要静态页面的托管，我们可以方便的找到这样的服务，例如Github Pages。</p>
+<p>建立此博客时所在的系统环境是Windows/Cygwin。</p>
+<h3 id="注册github账号">注册Github账号</h3>
+<p>Github Pages是个托管博客的好地方。注册Github账号不是什么复杂的过程。注册后设置自己的SSH Key，可以方便下面的操作。</p>
+<h3 id="octopress的安装">Octopress的安装</h3>
+<p>Octopress需要Git和Ruby，Cygwin都提供这些软件。Octopress对Ruby的版本有要求，写此文章时，Cygwin正好提供合适的版本1.9.3。</p>
+<p>执行下面的命令</p>
+<pre><code>git clone git://github.com/imathis/octopress.git octopress
+cd octopress
+# 安装依赖，下面的命令可能出错，见下文
+gem install bundler
+bundle install
+# 安装默认的Octopress主题
+rake install</code></pre>
+<p>执行<code>bundle install</code>时，posix-spawn包可能出错，可以通过手工安装的方式绕过错误。在另一目录执行下面的命令，然后重新执行<code>bundle install</code>。</p>
+<pre><code>pushd ~
+gem install rake-compiler -v 0.7.6
+git clone git://github.com/rtomayko/posix-spawn.git
+cd posix-spawn
+rake gem
+gem install pkg/posix-spawn-0.3.6
+popd</code></pre>
+<h3 id="部署到github-pages上">部署到Github Pages上</h3>
+<p>在Github上创建一个库，名字为<code>username.github.io</code>，其中<code>username</code>替换为用户名。这个库的SSH地址为<code>git@github.com:username/username.github.io.git</code>，后面会用到。</p>
+<p>执行下面的命令，初始化</p>
+<pre><code>rake setup_github_pages</code></pre>
+<p>生成并发布博客</p>
+<pre><code>rake generate
+rake deploy</code></pre>
+<p>此时，博客已经发布到<code>http://username.github.io</code>，但需要过几分钟，才能看到页面，此时是一个空的博客。</p>
+<p>将博客的源代码也放到库中，这样换个电脑后能方便地开始写博客。</p>
+<pre><code>git add .
+git commit -m &#39;your message&#39;
+git push origin source</code></pre>
+<h3 id="配置octopress">配置Octopress</h3>
+<p>打开<code>_config.yml</code>，改变其中的<code>title</code>，<code>subtitle</code>和<code>author</code>。更多的配置可以参考官网文档。</p>
+<h3 id="基本的操作">基本的操作</h3>
+<p>写文章</p>
+<pre><code>rake new_post[&quot;title&quot;]</code></pre>
+<p>可以做的操作</p>
+<pre><code>rake generate   # Generates posts and pages into the public directory
+rake watch      # Watches source/ and sass/ for changes and regenerates
+rake preview    # Watches, and mounts a webserver at http://localhost:4000</code></pre>
+<p>部署</p>
+<pre><code>git add .
+git commit -m &quot;article：Github page + Octopress&quot;
+git push
+rake deploy</code></pre>
+
+</div>
+
+    <hr />
+    <section class="comments" id="comments">
+    <!--<h2>Comments</h2>-->
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'zhzhsx'; // required: replace example with your forum shortname
+            var disqus_identifier = 'setup-blog-using-octopress-and-github-pages';
+            //var disqus_url = 'http://zhzhsx.github.io/posts/setup-blog-using-octopress-and-github-pages';
+
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </section>
+
+</div>
+</body>
+</html>

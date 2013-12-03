@@ -1,0 +1,42 @@
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+
+.long-text p {
+    text-align: justify;
+    text-indent: 2em;
+    /*    text-justify:distribute-all-lines;/*ie6-8*/
+    /*    text-align-last:justify;/* ie9*/
+    /*    -moz-text-align-last:justify;/*ff*/
+    /*    -webkit-text-align-last:justify;/*chrome 20+*/
+}
+
+body {
+    font-family: "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* used in page.html */
+.listing-item {
+    list-style-type: none;
+}
+
+.listing {
+    padding: 0px;
+}
